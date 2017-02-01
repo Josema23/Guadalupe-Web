@@ -1,0 +1,16 @@
+{% extends 'principal.html'%}
+
+{% block portada%}
+<br>
+<h2 style="text-align:center"><ins>{{noticia.titulo}}</ins></h2>
+<br>
+{% endblock %}
+
+
+{% block contenido %}
+
+  <div class="container">
+    <h5 style="text-align:center">{{noticia.cuerpo}}</h5>
+    <h6 style="text-align:center">Autor: {{noticia.autor}} &nbsp &nbsp &nbsp Fecha de publicación: {{noticia.fecha}}</h6>
+  </div>
+{% endblock %}

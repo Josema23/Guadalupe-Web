@@ -1,0 +1,60 @@
+{% extends 'principal.html' %}
+
+
+  {% block portada %}
+  {% endblock %}
+
+
+{% block contenido %}
+
+{% if user.is_staff %}
+     <br>
+
+
+ {% endif %}
+
+<h2 style="text-align:center"><ins>Noticias de Actualidad</ins></h2>
+<br><br>
+
+{% if noticias %}
+
+
+      {% for noticia in noticias %}
+
+        <h3 style="text-align:center"><ins><a href="/Noticia/{{noticia.id}}">{{noticia.titulo}}</ins></a></h3>
+        <br>
+        <img src="/media/{{noticia.portada}}" class=-"img-responsive" width="600px">
+        <br>
+        <h5 style="text-align:center">{{noticia.intro}}<a href="/Noticia/{{noticia.id}}"> Seguir leyendo </a></h5>
+        <br><br>
+    {% endfor %}
+
+    <div class="pagination" style="margin-top: 20px;">
+        <ul class="pager">
+            <span class="step-links">
+                {% if noticias.has_previous %}
+                    <li><a href= "?page={{ noticias.previous_page_number }}">Anterior</a></li>
+                {% endif %}
+                <span class="current">
+                    <b>&nbsp;<span class="glyphicon glyphicon-file"></span> Página {{ noticias.number }} de {{ noticias.paginator.num_pages }}</b>
+                </span>
+                {% if publicaciones.has_next %}
+                    <li><a href="?page={{ noticias.next_page_number }}">Siguiente</a></li>
+                {% endif %}
+            </span>
+        </ul>
+    </div>
+
+    {% else %}
+      <h2 style="text-align:center"> No hay Noticias insertadas</h2>
+      <br><br><br>
+    {% endif %}
+
+    </div>
+    <br><br>
+</div>
+
+
+
+
+{% endblock %}

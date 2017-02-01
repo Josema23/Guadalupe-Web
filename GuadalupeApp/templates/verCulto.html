@@ -1,0 +1,18 @@
+{% extends 'principal.html'%}
+
+{% block portada%}
+<br>
+<h2 style="text-align:center"><ins>{{culto.culto}}</ins></h2>
+<br>
+{% endblock %}
+
+
+{% block contenido %}
+
+  <h3 style="text-align:center">Fecha: {{culto.fecha}}</h3>
+  <br>
+  <h3 style="text-align:center"><ins>Historia</ins></h3>
+  <div class="container">
+    <h5 style="text-align:center">{{culto.desarrollo}}</h5>
+  </div>
+{% endblock %}

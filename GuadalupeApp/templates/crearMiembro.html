@@ -1,0 +1,19 @@
+{% extends 'principal.html' %}
+{% load static %}
+
+    <h2>Añadir Miembro Junta Directiva</h2>
+
+{% block portada %}
+{% endblock %}
+
+
+{% block contenido %}
+  <br><br><br>
+    <form method="POST">
+        {% csrf_token %}
+          {{ form.as_p  }}
+        <input type="button" value="Atrás" onclick="location.reload();location.href='/'"/>
+        <input type="submit" value="Añadir" onclick="location.reload();location.href='/JuntaDirectiva/'"/>
+    </form>
+  <br><br><br>
+{% endblock %}

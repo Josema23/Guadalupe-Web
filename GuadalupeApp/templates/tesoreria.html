@@ -1,0 +1,23 @@
+{% extends 'principal.html'%}
+
+{% block portada%}
+<br>
+<h2 style="text-align:center"><ins>Tesoreria</ins></h2>
+<br>
+{% endblock %}
+
+
+{% block contenido %}
+
+  {% for tesoreria in object_list %}
+
+  <div class="container">
+
+    <h3 style="text-align:center">{{tesoreria.texto}}</h3>
+    <br>
+
+  </div>
+
+  {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'principal.html' %}
+
+{% block portada %}
+
+{% endblock %}
+
+
+{% block contenido %}
+
+  <br>
+  <h2 style="text-align:center"><ins>Historia de la Asociación</ins></h2>
+
+    <br>
+
+  {% for objeto in object_list %}
+    <div class="container">
+      <h5 style="text-align:center">{{objeto.historia}}</h5>
+    </div>
+
+      <br>  <br>
+  {% endfor %}
+{% endblock %}

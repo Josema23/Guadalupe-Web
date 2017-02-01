@@ -1,0 +1,37 @@
+{% extends 'principal.html'%}
+
+{% block portada%}
+<br>
+<h2 style="text-align:center"><ins>Sede de la Asociación</ins></h2>
+<br>
+{% endblock %}
+
+
+{% block contenido %}
+
+  {% for sede in object_list %}
+
+    <h3 style="text-align:center">Lugar: {{sede.lugar}}</h3>
+
+    <br>
+
+    <h3 style="text-align:center"><ins>Historia</ins></h3>
+
+    <div class="container">
+
+      <h5 style="text-align:center">{{sede.historia}}</h5>
+
+    </div>
+
+  {% endfor %}
+
+    <h2 style="text-align:center">Localizacion</h2>
+
+    <div class="container" style="text-align:center">
+
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1580.2153230385409!2d-4.321981897668644!3d37.615556756883535!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x992aba752cb0839e!2sParroquia+de+Nuestra+Se%C3%B1ora+de+Guadalupe+Acci%C3%B3n+Cat%C3%B3lica!5e0!3m2!1ses!2ses!4v1485447994414" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+      <br><br><br><br>
+
+    </div>
+
+{% endblock %}

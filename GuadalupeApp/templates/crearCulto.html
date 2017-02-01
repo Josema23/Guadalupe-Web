@@ -1,0 +1,18 @@
+{% extends 'principal.html' %}
+
+    <h2>Añadir Culto</h2>
+
+{% block portada %}
+{% endblock %}
+
+
+{% block contenido %}
+  <br><br><br>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+          {{ form.as_p  }}
+        <input type="button" value="Atrás" onclick="location.reload();location.href='/'"/>
+        <input type="submit" value="Añadir" onclick="location.reload();location.href='/Cultos/'"/>
+    </form>
+  <br><br><br>
+{% endblock %}
