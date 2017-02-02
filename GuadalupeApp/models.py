@@ -30,7 +30,9 @@ class HistoriaAs (models.Model):
 
 class HistoriaVirgen (models.Model):
     desarrollo=models.TextField(max_length=1000)
-
+    imagen1=models.ImageField()
+    imagen2=models.ImageField()
+    imagen3=models.ImageField()
     def __unicode__ (self):
         return (self.desarrollo)
 
@@ -38,6 +40,8 @@ class Noticia (models.Model):
     titulo=models.CharField(max_length=100)
     intro=models.CharField(max_length=100)
     portada=models.ImageField()
+    imagen1=models.ImageField()
+    imagen2=models.ImageField()
     cuerpo=models.TextField(max_length=1500)
     fecha=models.DateTimeField(default=datetime.now)
     autor=models.ForeignKey(User)
@@ -47,6 +51,7 @@ class Noticia (models.Model):
 
 
 class Sede(models.Model):
+    imagen=models.ImageField()
     lugar=models.CharField(max_length=50)
     historia=models.TextField(max_length=100)
 
