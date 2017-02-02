@@ -43,6 +43,8 @@ class Noticia (models.Model):
     imagen1=models.ImageField()
     imagen2=models.ImageField()
     cuerpo=models.TextField(max_length=1500)
+    cuerpo2=models.TextField(max_length=1500)
+    cuerpo3=models.TextField(max_length=1500)
     fecha=models.DateTimeField(default=datetime.now)
     autor=models.ForeignKey(User)
 

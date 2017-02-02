@@ -10,7 +10,10 @@
 {% block contenido %}
 
   <div class="container">
+
+    <img src="/media/{{noticia.imagen1}}" class=-"img-responsive" width="600px">
     <h5 style="text-align:center">{{noticia.cuerpo}}</h5>
+    <img src="/media/{{noticia.imagen2}}" class=-"img-responsive" width="600px">
     <h6 style="text-align:center">Autor: {{noticia.autor}} &nbsp &nbsp &nbsp Fecha de publicación: {{noticia.fecha}}</h6>
   </div>
 {% endblock %}
