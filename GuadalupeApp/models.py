@@ -12,33 +12,43 @@ class Miembros (models.Model):
     vicesecretaria="Vicesecretaria"
     tesorera="Tesorera"
     vicetesorera="Vicetesorera"
-    vocal1="Vocal"
-    vocal2="Vocal"
-    cargosop=((presidenta, 'Presidenta'),(vicepresidenta, 'Vicepresidenta'),(presidentahonoraria, 'Presidenta Honoraria'),(secretaria, 'Secretaria'),(vicesecretaria, 'Vicesecretaria'),(tesorera, 'Tesorera'),(vicetesorera, 'Vicetesorera'),(vocal1, 'Vocal'),(vocal2, 'Vocal'))
+    vocal="Vocal"
+    cargosop=((presidenta, 'Presidenta'),(vicepresidenta, 'Vicepresidenta'),(presidentahonoraria, 'Presidenta Honoraria'),(secretaria, 'Secretaria'),(vicesecretaria, 'Vicesecretaria'),(tesorera, 'Tesorera'),(vicetesorera, 'Vicetesorera'),(vocal, 'Vocal'))
     cargos=models.CharField(max_length=20, choices=cargosop)
     def __unicode__ (self):
-        return (self.presidenta)
+        return str(self.cargos)
 
 
 class Junta (models.Model):
     miembro=models.ManyToManyField(Miembros)
 
+
 class HistoriaAs (models.Model):
-    historia=models.TextField(max_length=1000)
+
+    imagen1=models.ImageField()
+    imagen2=models.ImageField()
+    imagen3=models.ImageField()
+    historia=models.TextField(max_length=1500)
+    historia2=models.TextField(max_length=1500)
+    historia3=models.TextField(max_length=1500)
     def __unicode__(self):
-        return (self.historia)
+        return str(self.historia)
+
 
 class HistoriaVirgen (models.Model):
-    desarrollo=models.TextField(max_length=1000)
+    desarrollo=models.TextField(max_length=2500)
+    desarrollo2=models.TextField(max_length=2500)
+    desarrollo3=models.TextField(max_length=2500)
+    desarrollo4=models.TextField(max_length=2500)
     imagen1=models.ImageField()
     imagen2=models.ImageField()
     imagen3=models.ImageField()
     def __unicode__ (self):
-        return (self.desarrollo)
+        return str(self.desarrollo)
 
 class Noticia (models.Model):
-    titulo=models.CharField(max_length=100)
-    intro=models.CharField(max_length=100)
+    titulo=models.CharField(max_length=200)
+    intro=models.CharField(max_length=200)
     portada=models.ImageField()
     imagen1=models.ImageField()
     imagen2=models.ImageField()
@@ -49,16 +59,20 @@ class Noticia (models.Model):
     autor=models.ForeignKey(User)
 
     def __unicode__ (self):
-        return (self.titulo)
+        return str(self.titulo)
 
 
 class Sede(models.Model):
     imagen=models.ImageField()
-    lugar=models.CharField(max_length=50)
-    historia=models.TextField(max_length=100)
+    imagen2=models.ImageField()
+    imagen3=models.ImageField()
+    lugar=models.CharField(max_length=100)
+    historia=models.TextField(max_length=2000)
+    historia=models.TextField(max_length=2000)
+    historia=models.TextField(max_length=2000)
 
     def __unicode__ (self):
-        return (self.lugar)
+        return str(self.lugar)
 
 class Cultos (models.Model):
 
@@ -70,17 +84,19 @@ class Cultos (models.Model):
     culto=models.CharField(max_length=50, choices=cultos)
     imagen=models.ImageField()
     imagen2=models.ImageField()
-    fecha=models.CharField(max_length=50)
-    desarrollo=models.TextField(max_length=500)
+    fecha=models.CharField(max_length=100)
+    desarrollo=models.TextField(max_length=2000)
+    desarrollo2=models.TextField(max_length=2000)
+    desarrollo2=models.TextField(max_length=2000)
 
     def __unicode__ (self):
-        return (self.culto)
+        return str(self.culto)
 
 class Tesoreria (models.Model):
-    texto=models.TextField(max_length=500)
+    texto=models.TextField(max_length=1000)
 
     def __unicode__ (self):
-        return (self.texto)
+        return str(self.texto)
 
 class Album(models.Model):
 
@@ -90,8 +106,10 @@ class Album(models.Model):
     presentacion="Presentacion"
     encuentros="Encuentros"
     viajes="Viajes"
-    cultos=((viajes, 'Viajes'),(encuentros,'Encuentros'),(novena,'Novena'),(serenata,'Serenata'),(verbena, 'Verbena'),(presentacion, 'Presentacion a la Virgen'))
-    titulo=models.CharField(max_length=50, choices=cultos)
+    virgen="Ntra. Sra. de Guadalupe"
+    actividades="Actividades"
+    cultos=((actividades, 'Actividades'), (virgen, 'Ntra. Sra. de Guadalupe'),(viajes, 'Viajes'),(encuentros,'Encuentros'),(novena,'Novena'),(serenata,'Serenata'),(verbena, 'Verbena'),(presentacion, 'Presentacion a la Virgen'))
+    titulo=models.CharField(max_length=60, choices=cultos)
     owner = models.CharField(max_length=60)
     portada=models.ImageField()
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
@@ -100,8 +118,9 @@ class Album(models.Model):
         return (self.titulo)
 
 class AlbumImagen(models.Model):
+    titulo=models.CharField(max_length=60)
     album = models.ForeignKey(Album, related_name='image')
     imagen = models.ImageField()
 
     def __unicode__(self):
-        return str(self.imagen)
+        return str(self.titulo)
