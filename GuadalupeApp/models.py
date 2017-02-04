@@ -13,7 +13,8 @@ class Miembros (models.Model):
     tesorera="Tesorera"
     vicetesorera="Vicetesorera"
     vocal="Vocal"
-    cargosop=((presidenta, 'Presidenta'),(vicepresidenta, 'Vicepresidenta'),(presidentahonoraria, 'Presidenta Honoraria'),(secretaria, 'Secretaria'),(vicesecretaria, 'Vicesecretaria'),(tesorera, 'Tesorera'),(vicetesorera, 'Vicetesorera'),(vocal, 'Vocal'))
+    consiliario="Consiliario"
+    cargosop=(('Consiliario', consiliario),(presidenta, 'Presidenta'),(vicepresidenta, 'Vicepresidenta'),(presidentahonoraria, 'Presidenta Honoraria'),(secretaria, 'Secretaria'),(vicesecretaria, 'Vicesecretaria'),(tesorera, 'Tesorera'),(vicetesorera, 'Vicetesorera'),(vocal, 'Vocal'))
     cargos=models.CharField(max_length=20, choices=cargosop)
     def __unicode__ (self):
         return str(self.cargos)
@@ -68,8 +69,8 @@ class Sede(models.Model):
     imagen3=models.ImageField()
     lugar=models.CharField(max_length=100)
     historia=models.TextField(max_length=2000)
-    historia=models.TextField(max_length=2000)
-    historia=models.TextField(max_length=2000)
+    historia2=models.TextField(max_length=2000)
+    historia3=models.TextField(max_length=2000)
 
     def __unicode__ (self):
         return str(self.lugar)
@@ -87,7 +88,7 @@ class Cultos (models.Model):
     fecha=models.CharField(max_length=100)
     desarrollo=models.TextField(max_length=2000)
     desarrollo2=models.TextField(max_length=2000)
-    desarrollo2=models.TextField(max_length=2000)
+    desarrollo3=models.TextField(max_length=2000)
 
     def __unicode__ (self):
         return str(self.culto)
@@ -105,10 +106,10 @@ class Album(models.Model):
     verbena="Verbena"
     presentacion="Presentacion"
     encuentros="Encuentros"
-    viajes="Viajes"
+    peregrinaciones="Peregrinaciones"
     virgen="Ntra. Sra. de Guadalupe"
     actividades="Actividades"
-    cultos=((actividades, 'Actividades'), (virgen, 'Ntra. Sra. de Guadalupe'),(viajes, 'Viajes'),(encuentros,'Encuentros'),(novena,'Novena'),(serenata,'Serenata'),(verbena, 'Verbena'),(presentacion, 'Presentacion a la Virgen'))
+    cultos=((actividades, 'Actividades'), (virgen, 'Ntra. Sra. de Guadalupe'),(peregrinaciones, 'Peregrinaciones'),(encuentros,'Encuentros'),(novena,'Novena'),(serenata,'Serenata'),(verbena, 'Verbena'),(presentacion, 'Presentacion a la Virgen'))
     titulo=models.CharField(max_length=60, choices=cultos)
     owner = models.CharField(max_length=60)
     portada=models.ImageField()
