@@ -26,28 +26,22 @@
       <div class="thumbnail">
 
         <a href="/culto/{{culto.id}}">
-          <img src="/media/{{culto.imagen}}">
+          <img src="/media/{{culto.imagen}}" style="img-responsive" width="700px">
           <div class="caption">
-            <p style="text-align:center">{{culto.culto}}</p>
+           <h6 style="text-align:center">{{culto.culto}}</h6>
           </div>
         </a>
+
       </div>
     </div>
     {% endfor %}
 
-    {% else %}
-      <h2 style="text-align:center"> No hay Cultos insertados</h2>
-      <br><br><br>
-    {% endif %}
-
-    </div>
-    <br><br>
-    {% if user.is_staff %}
-
-      <input type="button" class="btn-default btn-lg" value="Añadir Culto" onclick="location.reload();location.href='/nuevoCulto/'"/>      <br>
-
-    {% endif %}
-    <br><br>
+{% endif %}
+</div>
+<br><br>
 </div>
 
+{% endblock %}
+
+{% block visitas %}
 {% endblock %}
