@@ -82,13 +82,13 @@ def verNoticia(request, noticia_id):
 	contexto = {'noticia':noticia}
 	return render(request,'verNoticia.html',contexto)
 
+def Galeria(request):
+    galeria=Album.objects.all()
+    contexto = {'galeria':galeria}
+    return render(request,'Galeria.html',contexto)
 
-class SubidaImagen (CreateView):
-    model=AlbumImagen
-    fields="__all__"
-    template_name='subida.html'
-    success_url="/"
-
-class Galeria(ListView):
-    model=Album
-    template_name='Galeria.html'
+def verAlbum(request, album_id):
+    album = Album.objects.get(pk = album_id)
+    imagen= AlbumImagen.objects.filter(album=album_id)
+    contexto = {'album':album, 'imagen':imagen}
+    return render(request,'Fotos.html',contexto)

@@ -10,17 +10,17 @@
 <h2 style="text-align:center"><ins>Galería Fotografica</ins></h2>
 <br><br>
 
-{% if object_list %}
+{% if galeria %}
 <div class="container">
   <div class="row">
 
-      {% for album in object_list %}
+      {% for album in galeria %}
 
     <div class="col-md-4">
       <div class="thumbnail">
 
-        <a href="/culto/{{album.id}}">
-          <img src="/media/Galeria/Serenata{{album.portada}}">
+        <a href="/album/{{album.id}}">
+          <img src="/media/{{album.portada}}">
           <div class="caption">
             <p style="text-align:center">{{album.titulo}}</p>
           </div>
@@ -29,9 +29,6 @@
     </div>
     {% endfor %}
 
-    {% else %}
-      <h2 style="text-align:center"> No hay Albums insertados</h2>
-      <br><br><br>
     {% endif %}
 
     </div>

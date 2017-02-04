@@ -2,7 +2,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.views.generic import TemplateView
 from GuadalupeApp import views
-from GuadalupeApp.views import listarMiembros,crearMiembro,listarCultos,crearCulto,verHistoriaVirgen,verHistoriaAsociacion,verSede,verTesoreria,Galeria,SubidaImagen
+from GuadalupeApp.views import *
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -20,7 +20,7 @@ urlpatterns = [
     url(r'^Noticias/', views.listarNoticias, name='Listar Noticias'),
     url(r'^Noticia/(?P<noticia_id>\d+)$', views.verNoticia, name='Ver Noticia'),
     url(r'^culto/(?P<culto_id>\d+)$', views.verCulto, name='Ver Culto'),
-    url(r'^Galeria/', Galeria.as_view(), name='Galeria'),
-    url(r'^Galeria/subida', SubidaImagen.as_view(), name='Subida Imagen'),
+    url(r'^Galeria/', views.Galeria, name='Galeria'),
+    url(r'^album/(?P<album_id>\d+)', views.verAlbum, name='Ver album'),
 
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

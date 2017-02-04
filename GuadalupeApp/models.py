@@ -101,16 +101,7 @@ class Tesoreria (models.Model):
 
 class Album(models.Model):
 
-    novena="Novena"
-    serenata="Serenata"
-    verbena="Verbena"
-    presentacion="Presentacion"
-    encuentros="Encuentros"
-    peregrinaciones="Peregrinaciones"
-    virgen="Ntra. Sra. de Guadalupe"
-    actividades="Actividades"
-    cultos=((actividades, 'Actividades'), (virgen, 'Ntra. Sra. de Guadalupe'),(peregrinaciones, 'Peregrinaciones'),(encuentros,'Encuentros'),(novena,'Novena'),(serenata,'Serenata'),(verbena, 'Verbena'),(presentacion, 'Presentacion a la Virgen'))
-    titulo=models.CharField(max_length=60, choices=cultos)
+    titulo=models.CharField(max_length=60)
     owner = models.CharField(max_length=60)
     portada=models.ImageField()
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
@@ -122,6 +113,7 @@ class AlbumImagen(models.Model):
     titulo=models.CharField(max_length=60)
     album = models.ForeignKey(Album, related_name='image')
     imagen = models.ImageField()
+    pie=models.CharField(max_length=60)
 
     def __unicode__(self):
         return str(self.titulo)
