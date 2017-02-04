@@ -77,18 +77,28 @@ def listarNoticias(request):
     contexto = {'noticias':noticias}
     return render(request,'listarNoticias.html',contexto)
 
+
 def verNoticia(request, noticia_id):
 	noticia = Noticia.objects.get(pk = noticia_id)
 	contexto = {'noticia':noticia}
 	return render(request,'verNoticia.html',contexto)
+
 
 def Galeria(request):
     galeria=Album.objects.all()
     contexto = {'galeria':galeria}
     return render(request,'Galeria.html',contexto)
 
+
+def AlbumGeneral(request, alb_id):
+    album = Album.objects.get(pk=alb_id)
+    gal=AlbumEspecifico.objects.filter(album=alb_id)
+    contexto = {'album':album, 'gal':gal}
+    return render(request,'AlbumEspecifico.html',contexto)
+
+
 def verAlbum(request, album_id):
-    album = Album.objects.get(pk = album_id)
-    imagen= AlbumImagen.objects.filter(album=album_id)
-    contexto = {'album':album, 'imagen':imagen}
+    album = AlbumEspecifico.objects.get(pk = album_id)
+    imagenes= AlbumImagen.objects.filter(album=album_id)
+    contexto = {'album':album, 'imagenes':imagenes}
     return render(request,'Fotos.html',contexto)

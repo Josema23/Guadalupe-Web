@@ -7,19 +7,19 @@
 
 {% block contenido %}
 
-<h2 style="text-align:center"><ins>Galería Fotografica</ins></h2>
+<h2 style="text-align:center"><ins>Galeria Fotografica</ins></h2>
 <br><br>
 
-{% if galeria %}
+{% if album %}
 <div class="container">
   <div class="row">
 
-      {% for album in galeria %}
+      {% for album in gal %}
 
     <div class="col-md-4">
       <div class="thumbnail">
 
-        <a href="/albums/{{album.id}}">
+        <a href="/album/{{album.id}}">
           <img src="/media/{{album.portada}}">
           <div class="caption">
             <p style="text-align:center">{{album.titulo}}</p>

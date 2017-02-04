@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^Noticia/(?P<noticia_id>\d+)$', views.verNoticia, name='Ver Noticia'),
     url(r'^culto/(?P<culto_id>\d+)$', views.verCulto, name='Ver Culto'),
     url(r'^Galeria/', views.Galeria, name='Galeria'),
+    url(r'^albums/(?P<alb_id>\d+)', views.AlbumGeneral, name='listar albums'),
     url(r'^album/(?P<album_id>\d+)', views.verAlbum, name='Ver album'),
 
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

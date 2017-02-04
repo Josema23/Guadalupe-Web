@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Miembros, HistoriaAs, Noticia, Sede, Cultos, HistoriaVirgen, Tesoreria, Album, AlbumImagen
+from .models import Miembros, HistoriaAs, Noticia, Sede, Cultos, HistoriaVirgen, Tesoreria, Album, AlbumImagen, AlbumEspecifico
 # Register your models here.
 
 admin.site.register(Miembros)
@@ -11,3 +11,4 @@ admin.site.register(HistoriaVirgen)
 admin.site.register(Tesoreria)
 admin.site.register(AlbumImagen)
 admin.site.register(Album)
+admin.site.register(AlbumEspecifico)

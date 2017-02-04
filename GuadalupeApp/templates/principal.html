@@ -105,10 +105,10 @@
 
     h6{
 
-      color: white;
+      color: black;
       font-family: Tangerine;
       font-style: normal;
-      font-size: 27px;
+      font-size:50px;
     }
 
     p {
@@ -118,7 +118,7 @@
     footer {
       display:block;
       position:static;
-      padding: 30px 0px;
+      padding: 50px 0px;
       background-color: #1F1F1F;
       border-top: 0px solid #0a0000;
       border-bottom-right-radius: 3px;
@@ -126,7 +126,7 @@
     }
 
 
-    .thumbnail {
+.thumbnail {
       display:auto;
       margin: 5px 5px 50px;
       width: 100%;
@@ -141,9 +141,26 @@
            -o-transition: border .2s ease-in-out;
               transition: border .2s ease-in-out;
     }
+
+}
+
+
+
     </style>
 
     <body>
+
+ <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
       {% block barra %}
       <div class="jumbotron">
         <img src="/media/cabecera.png" class="img-responsive" style="width:1600px">
@@ -200,9 +217,26 @@
         <br>
           <div class="caption">
             <h4 style="text-align:center"><ins>Cartel Conmemorativo del IV Centenario de la traslación</ins></h4>
+            <br><br>
         </div>
-        <br><br><br><br>
+        <br>
       {% endblock %}
+
+        {% block button %}
+            <center>
+                <div class="fb-like" data-href="http://virgendeguadalupebaena.pythonanywhere.com/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+                <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://virgendeguadalupebaena.pythonanywhere.com/" data-via="JosemaLuque1" data-lang="es">Twittear</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+           </center>
+        <br><br><br>
+        {% endblock %}
+
+        {% block visitas%}
+          <center>
+            <a href="https://www.cerotec.net/estadisticas-93574/virgendeguadalupebaena.pythonanywhere.com" title="contador visitas"><img src="https://www.cerotec.net/contador.php?t=11&s=1&i=93574" alt="Contador de visitas y estadísticas"></a> <br><a href='https://www.cerotec.net/diseno-grafico/diseno-imagen-corporativa/' style='font-size:12px;' >Imagen corporativa</a>
+          </center>
+        <br><br><br>
+        {% endblock %}
 
         {% block footer %}
 
@@ -211,7 +245,6 @@
 
                 <p>Nuestra Señora de Guadalupe &copy; José María Luque Ortiz. Copyright 2017. Todos los derechos reservados</p>
                 <p>Contacto:<a href="mailto:josema.jmlo@gmail.com"> josema.jmlo@gmail.com</a></p>
-                <p><a href="http://www.freepik.es/vector-gratis/colores-degradados-fondo-floral_801399.htm">Diseñado por Freepik</a></p>
             </div>
           </footer>
 
